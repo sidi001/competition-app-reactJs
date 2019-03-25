@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import logo from '../images/logo.png';
+import RechercheResult from './RechercheResult';
 
 class NavbarDessus extends Component {
+
+    onChercher(){
+        // l'idee ici est de faire passer en parametre props du components RechercheResult l'expression dans l'input de recherche
+        ReactDOM.render(<RechercheResult/>,document.getElementById('nav-home'))
+    }
     render(){
         return(
             <div>
@@ -20,7 +27,7 @@ class NavbarDessus extends Component {
 
                     <form className="form-inline">
                         <input className="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search"/>
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">chercher</button>
+                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={this.onChercher.bind(this)}>chercher</button>
                     </form>
                 </nav>
 

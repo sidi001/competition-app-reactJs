@@ -15,10 +15,21 @@ code {
 .back1{
   background: rgba(92, 146, 182, 0.533)
 }
-.login1{
+.loginClass{
+  position: relative;
+  top:0;
+  right:0;
+  border-style: outset;
   background: rgba(71, 184, 60, 0.533);
   width:20%;
   height:400px
+}
+.fenetreClass{
+  border-style: outset;
+  border-block-end-color: #0e4b06;
+  max-width:70%
+ 
+  
 }
 .navhauter{
   height: 110px;
@@ -43,9 +54,6 @@ code {
   color: #fff !important;
 }
 
-.nav-bar{
-  background: #2edd17;
-}
 .navbar-default .navbar-toggle {
   border-color: transparent;
   color: #fff !important;
@@ -60,4 +68,15 @@ code {
 }
 .navbar-brand{
   background-color: #0e4b06;
+}
+.container{
+  margin:10px
+}
+.navClass{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  width:100%;
+  background-color: green;
+  border: 2px solid #4CAF50;
 }
