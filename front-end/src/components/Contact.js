@@ -3,19 +3,16 @@ import React, {Component} from 'react';
 class Contact extends Component {
     render(){
         return(
-            <div>
-                <div>
-                    
-                    <p><h1>mail</h1>....<a>voir plus</a></p>
-                </div>
-                <div>
-                    
-                    <p><h1>numero</h1> : debut de la description</p>
-                </div>
-                <div>
-                    
-                    <p><h1>address</h1>maps...</p>
-                </div>
+            <div className="">
+                <h2>Contact</h2>
+                <br/>
+                <label>
+                    <h5><h3>Adresse:</h3> Avennue Mohamed Ben Abdellah Erragragui ENSIAS</h5>
+                </label>
+                <h5><h3>Mail:</h3> worldcompetition@gmail.com</h5>
+                <h5><h3>Tel:</h3> 06838753939</h5>
+                <h5><h3>FIX:</h3> 0548784733</h5>
+                
             </div>
             
         );

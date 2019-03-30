@@ -32,7 +32,7 @@ class login extends Component{
                     <div>
                         <a href="#" className="text-danger">Mot de pass oublié ?</a>
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Login</button>
                 </form>
             </div>
             

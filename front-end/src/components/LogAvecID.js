@@ -17,7 +17,7 @@ import LoginPage from './LoginPage'
 
 
 
-class LogSansID extends Component {
+class LogAvecsID extends Component {
 
     constructor(props){
         super(props);
@@ -89,8 +89,16 @@ class LogSansID extends Component {
                         <li className="nav-item">
                             <a className="nav-link navcolor btn" href="#nav-contact" onClick={this.num4.bind(this)}> Contact </a>
                         </li>
-                        <li className="nav-item fixed-right">
-                            <a className="nav-link navcolor btn" href="#nav-contact" onClick={this.num5.bind(this)}>  Inscrivez-vous </a>
+                        
+                        <li className="nav-item dropdown">
+                            <a className="nav-link navcolor btn dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compétitions</a>
+                            <div className="dropdown-menu">
+                                <a className="dropdown-item navcolor navClass" href="#" >Liste</a>
+                                <a className="dropdown-item navcolor navClass" href="#" >en cours</a>
+                                <a className="dropdown-item navcolor navClass" href="#" >déjà terminées</a>
+                                <a className="dropdown-item navcolor navClass" href="#" >Mes favoris</a>
+                                
+                            </div>
                         </li>
                     </ul>
 
@@ -125,4 +133,4 @@ class LogSansID extends Component {
   }
 }
 
-export default LogSansID;
+export default LogAvecsID;

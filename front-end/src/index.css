@@ -16,30 +16,27 @@ code {
   background: rgba(92, 146, 182, 0.533)
 }
 .loginClass{
-  position: relative;
-  top:0;
-  right:0;
+    position:static;
+    padding: 2px;
+    /*  float:right; */
+    right: 0px;
+    top:200px;
   border-style: outset;
   background: rgba(71, 184, 60, 0.533);
-  width:20%;
-  height:400px
+  max-height: 600px;
+  margin-right: 50px;
 }
 .fenetreClass{
   border-style: outset;
   border-block-end-color: #0e4b06;
-  max-width:70%
- 
+  width:70%;
   
 }
 .navhauter{
   height: 110px;
 }
-.carousel-indicators li {
-  border-color: #f4511e;
-}
-.carousel-indicators li.active {
-  background-color: #f4511e;
-}
+
+
 .navbar {
   margin-bottom: 0;
   background-color: #2edd17;
@@ -79,4 +76,58 @@ code {
   width:100%;
   background-color: green;
   border: 2px solid #4CAF50;
+}
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+}
+
+.carousel-indicators li {
+  box-sizing: content-box;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: .5;
+  transition: opacity 0.6s ease;
+}
+.carousel-indicators li {
+  box-sizing: content-box;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: .5;
+  transition: opacity 0.6s ease;
+}
+.bg0{
+  background: #3a3d3a;
+  opacity: 0.6;
 }
