@@ -29,8 +29,7 @@ code {
 .fenetreClass{
   border-style: outset;
   border-block-end-color: #0e4b06;
-  width:70%;
-  
+  width: 75%;
 }
 .navhauter{
   height: 110px;
@@ -130,4 +129,9 @@ code {
 .bg0{
   background: #3a3d3a;
   opacity: 0.6;
+}
+.admin {
+  background: #eee;
+  padding: 50px;
+  border-radius: 10px;
 }

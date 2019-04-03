@@ -7,7 +7,7 @@ import competitionLogo2 from '../images/competitionLogo2.jpeg';
 class Accueil extends Component {
     render(){
         return(
-            <div>
+            <div >
                 <div className="card">
                   <div className="card-header">
                     <i className="fa fa-align-justify"></i> ENSIAS

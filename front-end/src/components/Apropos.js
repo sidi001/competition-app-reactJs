@@ -6,7 +6,7 @@ import soumissionLogo from '../images/soumissionLogo.jpeg';
 class Apropos extends Component {
     render(){
         return(
-            <div className="container">
+            <div className="container" >
                 <div className="container">
                     <h1>OBJECTIFS</h1>
                     <p>
