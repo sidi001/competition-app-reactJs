@@ -10,13 +10,13 @@ class App extends Component {
   render() {
     if(true){
       return (
-        <div > 
+        <div> 
           <LogAvecID isFirst="0"/>
         </div>
       );
     }
       return (
-        <div > 
+        <div>
           <LogSansID isFirst="0"/>
         </div>
       );
