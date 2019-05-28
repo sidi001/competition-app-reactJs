@@ -14,7 +14,7 @@ router.get('/competitors' , function(req , res , next){
 	});
 }); 
 
-//adding a  new competitor with his email
+//adding a new competitor with his email
 router.post('/addcompetitor' , function(req , res , next){
 	User.find({"email" :req.body.email}).then(function(result){
 		if(result.length<1){
@@ -36,78 +36,46 @@ router.post('/addcompetitor' , function(req , res , next){
 	}).catch(next) ; 
 }); 
 
-
 // getting a list of all the competitors informations '
-router.get('/competitorsInfo' , function(req , res , next){
+router.get('/competitorsinfos' , function(req , res , next){
 	Competitor.find({}).then(function(competitors){
-		     var data  = {} ; 
+		     var users = []; 
+		     var data  = {"_id" : []} ; 
 			 for (var i = competitors.length - 1; i >= 0; i--) {
-			  	console.log(competitors[i].idCompetitor);
-			    User.find({"_id" :competitors[i].idCompetitor}).then(function(user){
-			    	 data 
-			    }); 
-
+			  	   data["_id"].push(competitors[i].idCompetitor);
 			  } 
+			   User.find(data).then(function(user){
+			    	 users = user;
+			    }).then(()=> res.send(users));
 	});
+
 });
 
 
 
-/*
-//getting a user with an email 
-router.get('/user' , function(req , res , next){
-	 var query = { "email" : req.query.email}  ; 
+//delete a competitor
+router.delete('/deletecompetitor/:_id' , function(req , res, next){
+	 Competitor.findByIdAndRemove(req.params).then(function(competitor){
+     				res.send(competitor); 
+	 }); 
+}); 
+
+
+// finding competitor by email 
+router.get('/competitor' , function(req, res, next){
+	 var query = {"email" : req.body.email}  ; 
+	 console.log(query);
 	 User.find(query).then(function(user){
-	 	  res.send(user); 
-	 });
-});
-
-//adding a  new user
-router.post('/adduser' , function(req , res , next){
-	//console.log(req.body); 
-	//create is a Promise so we have to wait it until it finishes 
-	User.find({"email" :req.body.email}).then(function(result){
-		console.log("result") ; 
-		console.log(result) ; 
-		if(result.length>0){
-               res.send(" the user already exists"); 
-		}else {
-			console.log("req") ; 
-			console.log(req.body) ; 
-			User.create(req.body).then(function(user){
-				console.log(user); 
-				res.send(user);
-			}).catch(next); 
-		}
-	}) ; 
-	
-}); 
-
-
-
-//delete a user 
-router.delete('/deleteuser/:id' , function(req , res, next){
-	 User.findByIdAndRemove({_id : req.params.id}).then(function(user){
-     				res.send(user); 
-	 }); 
-}); 
-
-//update a user 
-router.put('/updateuser/:id' , function(req , res , next){
-	 User.findByIdAndUpdate({_id : req.params.id} , req.body).then(function(){
-			User.findOne({_id : req.params.id}).then(function(user){
-				res.send(user); 
-		    }); 
-	 }); 
-}); 
-
-// check the user if it exists and the password if it is correct 
-router.post('/logincheck' , function(req , res , next){
-	var query = req.body  ; 
-	User.find(query).then(function(user){
-		  if(user.length<1) res.json({"response" : false}); 
-		  else res.json({"response" : true}); 
+	 	  console.log(user[0]);
+	 	  var data = {"idCompetitor" : user[0]._id };  
+	 	  console.log(data);
+	 	  Competitor.find(data).then(function(competitor){
+	 	  	     console.log(competitor); 
+	 	  	     res.send(user); 
+	 	});
 	});
 });
-*/
+
+
+
 module.exports = router; 

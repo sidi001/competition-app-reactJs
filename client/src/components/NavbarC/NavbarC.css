@@ -1,0 +1,50 @@
+
+  
+ 
+  .navcolor:hover{
+    background: rgb(143, 194, 145);
+    color:#f4511e;
+  }
+  .navcolor:focus{
+    background: rgb(4, 102, 28);
+    color:#f4511e;
+  }
+ 
+
+  .navbar {
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    border: none;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: none;
+}
+.navbar-header {
+  float: left;
+}
+.navbar-push {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.navbar-push {
+  right: 0;
+  -webkit-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+.navbar-default .navbar-toggle {
+  border-color: #ddd;
+}
+.navbar-brand {
+  float: left;
+  padding: 0;
+  width: 145px;
+  height: 50px;
+  padding-left: 15px;
+}

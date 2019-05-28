@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router(); 
 const User = require("../models/user.js") ; 
+const Competitor = require("../models/competitor.js") ; 
+const Jury = require("../models/jury.js") ; 
+const Admin = require("../models/admin.js") ; 
 
 
 /*
@@ -20,26 +23,31 @@ router.get('/users' , function(req , res , next){
 
 //getting a user with an email 
 router.get('/user' , function(req , res , next){
-	 var query = { "email" : req.query.email}  ; 
+	 var query = { "email" : req.body.email}  ; 
+	 User.find(query).then(function(user){
+	 	  res.send(user); 
+	 });
+});
+
+//getting a user with an email 
+router.post('/user/:id' , function(req , res , next){
+	 var query = { "_id" : req.params.id}  ; 
 	 User.find(query).then(function(user){
 	 	  res.send(user); 
 	 });
 });
 
 //adding a  new user
-router.post('/adduser' , function(req , res , next){
-	//console.log(req.body); 
+router.get('/adduser' , function(req , res , next){
 	//create is a Promise so we have to wait it until it finishes 
 	User.find({"email" :req.body.email}).then(function(result){
-		console.log("result") ; 
-		console.log(result) ; 
 		if(result.length>0){
                res.send(" the user already exists"); 
 		}else {
-			console.log("req") ; 
-			console.log(req.body) ; 
+			/*console.log("req") ; 
+			console.log(req.body) ; */
 			User.create(req.body).then(function(user){
-				console.log(user); 
+				//console.log(user); 
 				res.send(user);
 			}).catch(next); 
 		}
@@ -48,19 +56,31 @@ router.post('/adduser' , function(req , res , next){
 }); 
 
 
+//delete a user // quand tu supprimes un utilisateur tu dois supprimer ses comptes admin et competitor ect 
+router.delete('/deleteuser/:_id' , function(req , res, next){
+	 console.log(req.params._id);
+	 User.findOneAndRemove({_id : req.params._id}).then(function(user){
+	 	Admin.findOneAndRemove({"idUser" : req.params._id}).then(function(admin){
+	 		  Jury.findOneAndRemove({"idUser" : req.params._id}).then(function(jury){
+	 		      Competitor.findOneAndRemove({"idCompetitor" : req.params._id}).then(function(competitor){
+	 		            res.send(user); 
+	 	          }); 
+	 	     });
+	 	});
 
-//delete a user 
-router.delete('/deleteuser/:id' , function(req , res, next){
-	 User.findByIdAndRemove({_id : req.params.id}).then(function(user){
-     				res.send(user); 
-	 }); 
+
+	});
+
 }); 
 
+
+
 //update a user 
-router.put('/updateuser/:id' , function(req , res , next){
-	 User.findByIdAndUpdate({_id : req.params.id} , req.body).then(function(){
+router.put('/updateuser/:id'  , function(req , res , next){
+	console.log(req.params.id);
+	 User.findByIdAndUpdate({_id : req.params.id}, req.body).then(function(){
 			User.findOne({_id : req.params.id}).then(function(user){
-				res.send(user); 
+				    res.send(user); 
 		    }); 
 	 }); 
 }); 
